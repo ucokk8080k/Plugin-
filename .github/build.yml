@@ -12,9 +12,9 @@ jobs:
         with:
           distribution: temurin
           java-version: '21'
-          cache: maven
-      - run: mvn -B package
+      - run: unzip -q EventX-source.zip
+      - run: mvn -B package -f EventX/pom.xml
       - uses: actions/upload-artifact@v4
         with:
           name: EventX
-          path: target/EventX.jar
+          path: EventX/target/EventX.jar
